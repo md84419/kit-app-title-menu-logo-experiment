@@ -1,0 +1,87 @@
+[package]
+version = "1.0.0"
+authors = ["Robotica"]
+title = "Title Menu Logo Experiment"
+description="An example Omniverse app with an app logo that occupies both the title and menu bar"
+category = "Example"
+keywords = ["app"]
+readme  = "docs/README.md"
+repository = ""
+changelog="docs/CHANGELOG.md"
+preview_image = "data/preview.png"
+# icon = "data/icon.png"
+
+
+[dependencies]
+"omni.kit.uiapp" = {}
+"robotica.example.app.logo" = { order = 1000 }
+"omni.kit.test" = {} # required by omni.kit.window.modifier.titlebar
+
+#Menus
+# "omni.kit.menu.utils" = {}
+# "omni.kit.menu.file" = {}
+# "omni.kit.menu.edit" = {}
+# "omni.kit.menu.create" = {}
+# "omni.kit.menu.common" = {}
+
+# Windows
+# "omni.kit.window.file" = {}
+# "omni.kit.context_menu" = {}
+"omni.kit.window.title" = {}
+"omni.kit.widget.live" = {}
+
+# Microsoft Windows settings
+[dependencies."filter:platform"."windows-x86_64"]
+"omni.kit.window.modifier.titlebar" = {}
+
+# Basic Kit App
+################################
+[settings.app]
+window.title = "Title/Menu Logo Experiment"
+window.width = 1000
+window.height = 500
+window.x = -1
+window.y = -1
+window.iconPath = "${robotica.example.app.logo}/data/icon.ico"
+name = "robotica.example.app.logo"
+font.file = "${fonts}/OpenSans-SemiBold.ttf"
+font.size = 16
+menu.legacy_mode = false
+titleVersion = "1.0"
+fastShutdown = true
+layout.name = "basic"
+
+[settings]
+persistent.app.window.uiStyle = "NvidiaDark"
+exts."omni.kit.renderer.core".compatibilityMode = true
+
+[settings.exts."omni.kit.window.modifier.titlebar"]
+titleFormatString = "{text:------------------------------,font_color=0xFF000000,font_size=1} Title/Menu Logo Experiment {text:0.1,font_color=0x909090,font_size=16} {separator} {file, board=false}"
+showFileFullPath = true
+icon.file = "${robotica.example.app.logo}/data/icon.ico"
+icon.size = 90
+icon.use_size = true
+defaultFont.name = "Arial"
+defaultFont.size = 16
+defaultFont.color = 0xD0D0D0
+separator.color = 0x00B976
+separator.width = 1
+windowBorder.color = 0x0F0F0F
+windowBorder.width = 2
+colors.caption = 0x0F0F0F
+colors.client = 0x0F0F0F
+respondOnMouseUp = true
+changeWindowRegion = true
+
+[settings.app.exts]
+folders.'++' = ["${app}/../exts", "${app}/../extscache/", "${app}/../baseapp/exts", "${app}/../baseapp/extscache", "${app}/../baseapp/apps"]
+
+[settings.app.extensions]
+registryEnabled = false
+
+[[test]]
+args = [
+	"--/app/window/width=480",
+    "--/app/window/height=480",
+    "--/app/extensions/registryEnabled=0", # Make sure we can run without registry and everything is precached
+]
