@@ -2,7 +2,7 @@
 
 A scratch space for exploring and experimenting with an app logo that spans the title and menu bars.
 
-![](./exts/robotica.example.app.logo/data/preview.gif)
+![](./source/extensions/robotica.example.app.logo/data/preview.png)
 
 
 
