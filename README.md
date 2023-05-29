@@ -29,7 +29,8 @@ identifiable, delivering 5 key benefits:
   -  Differentiation and memorability, building a connection with our target audience
 
 ## The solution
-Omniverse currently provides limited ability to control the Chrome for applications.  This experiment provides
+Omniverse currently provides limited ability to control the [chrome](https://www.nngroup.com/articles/browser-and-gui-chrome/)
+for applications.  This experiment provides
 a way to work around those limitations to create a more distinctive app design.  This should be considered a
 temporary workaround until Omniverse provides a better solution: we're taking advantage of undocumented features
 about the way that Omniverse currently works, which results in fragile code which is likely to break in future
