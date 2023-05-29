@@ -147,4 +147,12 @@ class SetupExtension(omni.ext.IExt):
         print("Open the File you want")
 
     def on_shutdown(self):
+        editor_menu = ui.get_editor_menu()
+        self._file_open = editor_menu.remove_item("File/Open")
+        self._help_menu = editor_menu.remove_item("Help/Show")
+        self._file_open = None
+        self._help_menu = None
         self._logo_menu.unregister_menu_widgets()
+        self._logo_menu = None
+        self._settings = None
+        self._await_layout = None
