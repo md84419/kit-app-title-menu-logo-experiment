@@ -11,7 +11,7 @@ A scratch space for exploring and experimenting with an app logo that spans the 
 - NVIDIA Omniverse Launcher
 - An Omniverse App (Create, Code, etc)
 - Kit 104.1 or later
-- Tested with Code 2022.3.3
+- Tested with Create 2022.3.3
 
 ```
 > .\link_app.bat
