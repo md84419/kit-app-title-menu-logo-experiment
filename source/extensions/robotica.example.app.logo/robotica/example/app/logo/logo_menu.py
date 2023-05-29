@@ -11,33 +11,29 @@ import omni.ui as ui
 import omni.kit.menu.utils
 from typing import Union
 
+import omni.kit.window.modifier.titlebar
+
 DATA_PATH = Path(__file__).parent.parent.parent.parent.parent
 
 
 class RoboticaLogoDelegate(ui.MenuDelegate):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
-        self._cache_widget = None
-
     def destroy(self):
-        self._cache_widget = None
+        pass
 
     def build_item(self, item: ui.MenuHelper):
-        with ui.HStack(width=0, style={"margin": 0}):
-            ui.Spacer(width=5)
-            self._cache_widget = ui.HStack(content_clipping=1, width=0)
-            ui.Spacer(width=10)
-
-        if not self._cache_widget:
-            return
-
-        self._cache_widget.clear()
-        with self._cache_widget:
-            with ui.Placer(offset_x=-41, offset_y=-1):
-                with ui.Frame(width=80, horizontal_clipping=True):
-                    ui.Image(f"{DATA_PATH}/data/icon.png",
-                            width=90, height=32, alignment=ui.Alignment.BOTTOM, fill_policy=ui.FillPolicy.PRESERVE_ASPECT_CROP)
+        with ui.HStack(width=0):
+            ui.Spacer(width=0)
+            with ui.HStack(content_clipping=1, width=0):
+                with ui.Placer(offset_x=-36, offset_y=-1):
+                    with ui.Frame(width=80, horizontal_clipping=True):
+                        ui.Image(
+                            f"{DATA_PATH}/data/icon.png",
+                            width=90,
+                            height=32,
+                            alignment=ui.Alignment.BOTTOM,
+                            fill_policy=ui.FillPolicy.PRESERVE_ASPECT_CROP
+                        )
+            ui.Spacer(width=6)
 
     def get_menu_alignment(self):
         return MenuAlignment.DEFAULT
